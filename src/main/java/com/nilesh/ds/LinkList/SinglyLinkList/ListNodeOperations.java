@@ -144,4 +144,85 @@ public class ListNodeOperations {
         System.out.println(head.getData());
     }
 
+    public ListNode mergeTwoSortedList(ListNode a, ListNode b) {
+        ListNode result = null;
+        if (a == null) {
+            return b;
+        }
+        if (b == null) {
+            return a;
+        }
+        if (a.getData() <= b.getData()) {
+            result = a;
+            result.setNext(mergeTwoSortedList(a.getNext(), b));
+        } else {
+            result = b;
+            result.setNext(mergeTwoSortedList(a, b.getNext()));
+        }
+        return result;
+    }
+
+    //reverse LinkList in pairs of k
+    //1->2->3->4->5->6->7->NULL
+    //3->2->1->6->5->4->7->NULL  for k=3
+    //2->1->4->3->6->5->7->NULL  for k=2
+    public ListNode reverseLinkListInPairs(ListNode head, int k) {
+        ListNode current = head;
+        ListNode prev = null;
+        ListNode next = null;
+        int count = 0;
+        while (count < k && current != null) {
+            next = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = next;
+            count++;
+        }
+        if (next != null) {
+            head.setNext(reverseLinkListInPairs(next, k));
+        }
+        return prev;
+    }
+
+    //create circular LinkList from Array
+    public ListNode createCircularLinkListFromArray(int[] arr) {
+        ListNode p = new ListNode(arr[0]);
+        ListNode q = p;
+        for (int j = 2; j < arr.length; j++) {
+            p.setNext(new ListNode(arr[j]));
+            p = p.getNext();
+        }
+        p.setNext(q);
+        return q;
+    }
+
+    public Boolean findLoopInLinkList(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+            if (slow == fast) {
+                System.out.println("loop present");
+                return true;
+            }
+        }
+        System.out.println("loop not present");
+        return false;
+    }
+
+    public void josephusCircleProblem(ListNode head, int m) {
+        ListNode p = head;
+        while (p.getNext() != p) {
+            int count = 0;
+            while (count < m - 1) {
+                p = p.getNext();
+                count++;
+            }
+            p.setNext(p.getNext().getNext());
+        }
+        System.out.println("last person standing: " + p.getData());
+    }
+
+
 }
