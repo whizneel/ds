@@ -1,8 +1,8 @@
-package com.nilesh.ds.LinkList.SinglyLinkList;
+package com.nilesh.ds.karumanchi.LinkList.SinglyLinkList;
 
-public class ListNodeMain {
-    public static void main(String[] args) {
-        ListNodeOperations listNodeOperations = new ListNodeOperations();
+public class ListNodeMain2 {
+    public void CodeToCallInMain(String[] args) {
+        ListNodeOperations2 listNodeOperations = new ListNodeOperations2();
 
         //build List
 //        ListNode head = listNodeOperations.buildList();
@@ -54,7 +54,7 @@ public class ListNodeMain {
 //        listNodeOperations.findLoopInLinkList(listNodeOperations.buildlistFromArray(Arrays.asList(1,2,3,4,5)));
 
         //josephus problem
-        ListNode head = listNodeOperations.createCircularLinkListFromArray(new int[]{1, 2, 3, 4, 5});
+        ListNode2 head = listNodeOperations.createCircularLinkListFromArray(new int[]{1, 2, 3, 4, 5});
         listNodeOperations.josephusCircleProblem(head, 3);
     }
 }

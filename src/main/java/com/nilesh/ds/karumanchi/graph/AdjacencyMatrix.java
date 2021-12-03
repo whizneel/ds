@@ -38,7 +38,7 @@ import java.sql.SQLOutput;
 // |     |     |
 // 3-----2-----4
 public class AdjacencyMatrix {
-    public static void main() {
+    public void codeToBeCalledInMain() {
         GraphAdjacencyMatrix adjMatrix = new GraphAdjacencyMatrix(5);
 
         adjMatrix.addEdge(0,1);

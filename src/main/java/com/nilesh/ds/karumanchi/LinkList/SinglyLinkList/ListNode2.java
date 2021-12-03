@@ -1,10 +1,10 @@
-package com.nilesh.ds.LinkList.SinglyLinkList;
+package com.nilesh.ds.karumanchi.LinkList.SinglyLinkList;
 
-public class ListNode {
+public class ListNode2 {
     private int data;
-    private ListNode next;
+    private ListNode2 next;
 
-    public ListNode(int data) {
+    public ListNode2(int data) {
         this.data = data;
     }
 
@@ -16,11 +16,11 @@ public class ListNode {
         this.data = data;
     }
 
-    public ListNode getNext() {
+    public ListNode2 getNext() {
         return next;
     }
 
-    public void setNext(ListNode next) {
+    public void setNext(ListNode2 next) {
         this.next = next;
     }
 
